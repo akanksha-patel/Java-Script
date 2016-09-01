@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul{
+	list-style: none;	
+}
+
+.onov{
+	background-color: #036;
+	color: #FFF;
+}
+
+.onout{	
+	background-color: #9F9;
+	color: #C30;	
+}
+
+li{
+	border: 1px solid #003;
+	padding: 5px 10px;
+	display: inline;
+	cursor: pointer;
+	margin-right: 10px;
+}
+

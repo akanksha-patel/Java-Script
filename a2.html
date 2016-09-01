@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+	#abc{
+		border: 1px solid red;
+		padding: 3px 12px;
+	}
+  </style>
+
+  <script type="text/javascript">
+	//Case 0a:
+	//alert('Hello World +++++++++%');
+	
+	//Case 1:
+	
+	window.onload = someFunc;
+	/*
+	function someFunc(){
+		alert("Going to change the document");
+		document.write('This is my first page...');
+		document.write('<h1>This is my first page...</h1>');
+	}
+	*/
+
+	//Case 2:
+	function someFunc(){
+	document.write('This is my frist page...');
+	document.write('<h1>This is my frist page...</h1>');
+	}
+  </script>
+
+ </HEAD>
+
+ <BODY>
+	<span id="abc">Some</span>
+	
+	<!-- Case 0b
+	<script type="text/javascript">
+		alert("Hello");
+	</script>-->
+ </BODY>
+</HTML>

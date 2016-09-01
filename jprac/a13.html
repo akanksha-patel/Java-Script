@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style>
+	#bk{
+		border: 1px solid black;
+		border-radius: 50px;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		left: 100px;
+		top: 100px;
+	}
+  </style>
+
+  <script>
+	window.onload = initAll;
+	
+	var bk;
+	function initAll(){
+		bk = document.getElementById('bk');
+		
+		setMotion();
+	}
+	
+	var inrWdth = window.innerWidth;
+	var inrHght = window.innerHeight;
+	var x = y = 100;
+	function setMotion(){		
+		var randNum = Math.round(Math.random()*100);
+
+		if(randNum%2==0){
+			
+		}else{
+			
+		}
+	}
+  </script>
+ </HEAD>
+
+ <BODY style="position:relative">
+  <div id="bk"></div>
+ </BODY>
+</HTML>

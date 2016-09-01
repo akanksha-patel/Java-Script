@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  
+  
+  <script>
+	window.onload = initAll;
+
+	function initAll(){
+		var v = document.getElementById("cl");
+		v.onclick = function(){ alert('Hello World'); };
+	}
+
+  </script>
+
+
+  <style>
+	#cl{
+		color: green;
+	}
+  </style>
+ </HEAD>
+
+ <BODY>
+	<h1 id="cl">Clink Me</h1>  
+ </BODY>
+</HTML>

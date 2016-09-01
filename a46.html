@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+	.abc{
+		visibility: hidden;
+	}
+  </style>
+
+  <script type="text/javascript">
+	window.onload = initAll;
+	
+	var txtnm,txtem,txtage,gnf,gnm;
+	var spnm,spem,spage,spgn;
+	var lblm,lblf;
+	var btn,undo;
+
+	var nm,em,ag,gn;
+	function initAll(){
+		txtnm = document.getElementById('unm');
+		txtem = document.getElementById('eml');
+		txtage = document.getElementById('age');
+		spnm = document.getElementById('nmid');
+		spem = document.getElementById('emid');
+		spage = document.getElementById('agid');
+		spgn = document.getElementById('spgn');
+		gnf = document.getElementById('gnf');
+		gnm = document.getElementById('gnm');
+
+		lblm = document.getElementById('lblm');
+		lblf = document.getElementById('lblf');
+
+		btn = document.getElementById('btn');
+		btn.onclick = setEdit;
+
+		undo = document.getElementById('undo');
+		undo.onclick = setBack;
+	}
+
+	function setBack(){
+		txtnm.style.visibility = 'hidden';
+		txtem.style.visibility = 'hidden';
+		txtage.style.visibility = 'hidden';
+		gnm.style.visibility = 'hidden';
+		gnf.style.visibility = 'hidden';
+		lblm.style.visibility = 'hidden';
+		lblf.style.visibility = 'hidden';
+
+		btn.value = 'Edit';
+		btn.onclick = setEdit;
+		undo.style.visibility = 'hidden';
+
+		spnm.innerHTML = nm;
+		spem.innerHTML = em;
+		spage.innerHTML = ag;
+		spgn.innerHTML = gn;	
+	}
+
+	function setEdit(){
+		nm = spnm.innerHTML;
+		em = spem.innerHTML;
+		ag = spage.innerHTML;
+		gn = spgn.innerHTML;
+
+		txtnm.value = spnm.innerHTML;
+		txtem.value = spem.innerHTML;
+		//txtage.value = spage.innerHTML;
+		for(i=1;i<100;i++){
+			var opelm = document.createElement('option');
+			opelm.innerHTML = i;
+			if(spage.innerHTML==i){
+				opelm.selected = true;
+			}
+			txtage.appendChild(opelm);
+		}
+		if(spgn.innerHTML=='M'){
+			gnm.checked = true;
+		}else{
+			gnf.checked = true;
+		}
+		
+		spnm.innerHTML = '';
+		spem.innerHTML = '';
+		spage.innerHTML = '';
+		spgn.innerHTML = '';
+
+		txtnm.style.visibility = 'visible';
+		txtem.style.visibility = 'visible';
+		txtage.style.visibility = 'visible';
+		gnm.style.visibility = 'visible';
+		gnf.style.visibility = 'visible';
+		lblm.style.visibility = 'visible';
+		lblf.style.visibility = 'visible';
+
+		btn.value = 'Update';
+
+		btn.onclick = function(){
+								document.forms[0].submit();
+						   }
+
+		undo.style.visibility = 'visible';
+	}
+  </script>
+ </HEAD>
+
+ <BODY>
+	<form action="a23.html">
+	  User Name : 
+	  <span id="nmid">Mohan Kumar</span>
+	  <input type="text" id="unm" name="unm" class="abc" /><br />
+	  
+	  Email : 
+	  <span id="emid">mohan@gmail.com</span>
+	  <input type="text" id="eml" name="eml" class="abc" /><br />
+	  
+	  Age : 
+	  <span id="agid">23</span>
+	  <select id="age" class="abc" name="age"></select>
+	  <!--<input type="text" id="age" class="abc" />-->
+	  <br />
+
+	  Gender : <span id="spgn">F</span>
+	  <br /><span id="lblm" class="abc">M:</span><input type="radio" name="gn" id="gnm" value="M" class="abc" />
+	  <br /><span id="lblf" class="abc">F:</span><input type="radio" name="gn" id="gnf" value="F" class="abc" /> <br />
+	  <input type="button" id="btn" value="Edit" />
+	  <input type="button" id="undo" class="abc" value="Undo" />
+	</form>
+ </BODY>
+</HTML>

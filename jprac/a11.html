@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+  	#ak{
+        width: 400px;
+        height: 400px;
+        border: 1px solid red;
+        background: url(images/1.jpg) 0px 0px no-repeat,url(images/2.jpg) 200px 0px no-repeat;        
+    }
+  </style>
+
+  <script type="text/javascript">
+	window.onload = initAll
+	
+    var intv;
+    var img = new Image();
+    var arr = new Array();
+    var obj = null;  
+    var y = 1;
+    var cur;  
+	function initAll(){
+		box1 = document.getElementById('ak');	
+        
+        do{
+            img = document.images[0];
+            img.src = 'images/'+y+'.jpg';
+            arr[y-1] = {height:img.height,width:img.width};
+            y++;
+        }while(y<=11);    
+        
+        cur = arr[0].width;
+        intv = setInterval(swap,10);
+	}  
+      
+    var count = 0;  
+    var x = 1; 
+	var z = x + 1;
+    function swap(){
+        box1.style.background = 'url(images/'+x+'.jpg) '+(0-count)+'px 0px no-repeat, url(images/'+z+'.jpg) '+(cur-count)+'px 0px no-repeat';
+        count++;
+        if(count==cur){
+            x++; 
+			z = x + 1;
+            if(x==11){
+                z = 1;
+            }
+            
+            count = 0;          
+            //setTimeout(function(){},1000);
+            cur = arr[x-1].width;
+			/*
+            box1.style.background = 'url(images/'+x+'.jpg) '+(0-count)+'px 0px no-repeat, url(images/'+(x+1)+'.jpg) '+(cur-count)+'px 0px no-repeat';*/
+        }
+    }
+  </script>
+ </HEAD>
+
+ <BODY>
+
+  <div id="ak"></div>
+  <img src="" id="xz" />     
+
+ </BODY>
+</HTML>

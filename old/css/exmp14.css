@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul{
+	list-style: none;	
+	position: relative;
+}
+
+.onov{
+	background-color: #036;
+	color: #FFF;
+}
+
+.onout{	
+	background-color: #9F9;
+	color: #C30;	
+}
+
+li{
+	border: 1px solid #003;
+	padding: 5px 10px;
+	display: inline;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+#sub{
+	position: absolute;
+	top: 26px;	
+	border: 1px solid #333;
+	display: none;
+}
+
+.sbb{
+	padding: 4px 6px;
+	border: 1px solid #003;
+	cursor: pointer;
+}
+
+.sbb_{
+
+
+	padding: 4px 6px;
+	border: 1px solid #003;
+	cursor: pointer;
+	background-color: #eee;
+	color: #444;
+}

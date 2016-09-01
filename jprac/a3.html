@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+	.xz{
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		border: 1px solid black;
+	}
+
+	.xz2{
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		border: 1px solid black;
+		border-radius: 50px;
+	}
+
+	.xz3{
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		border: 1px solid black;
+		background-color: black;
+	}
+
+	#clr,#cr,#sq,#ln{
+		border: 1px solid black;
+		padding: 2px 8px;
+		background-color: yellow;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+
+  </style>
+  <script type="text/javascript">
+	window.onload = initAll;
+
+	var flag = false;
+	var typ = 'xz3';
+	var box,clr,sq,cr,ln;
+	function initAll(){
+		box = document.getElementById('abc');
+		box.onmousemove = onOv;
+		box.onmousedown = function(){ flag = true;};
+		box.onmouseup = function(){ flag = false;};
+
+		clr = document.getElementById('clr');
+		clr.onclick = function(){box.innerHTML = '';};
+
+		sq = document.getElementById('sq');
+		sq.onclick = function(){ typ = 'xz'; };
+		cr = document.getElementById('cr');
+		cr.onclick = function(){ typ = 'xz2'; };
+		ln = document.getElementById('ln');
+		ln.onclick = function(){ typ = 'xz3'; };
+	}
+    
+	
+	function onOv(event){
+		if(flag){
+			var bx = document.createElement('div');
+			bx.className = typ;
+			//bx.style.left = event.screenX-15;
+			//bx.style.top = event.screenY-175;
+			if(typ!='xz3'){
+				bx.style.left = (event.clientX-75)+'px';
+				bx.style.top = (event.clientY-150)+'px';
+			}else{
+				bx.style.left = (event.clientX-9)+'px';
+				bx.style.top = (event.clientY-110)+'px';			
+			}
+				
+
+			box.appendChild(bx);
+		}
+	}
+  </script>
+ </HEAD>
+
+ <BODY>
+	<span id="clr">Clear</span>
+	<span id="sq">Square</span>
+	<span id="cr">Circle</span>
+	<span id="ln">Line</span>
+	
+	<select>
+		<option>Select</option>
+		<option>#000000</option>
+	</select>
+	<div id="abc" style="position: relative;height:1000px;border:1px solid red;margin-top:80px;">
+	
+	</div>
+ </BODY>
+</HTML>

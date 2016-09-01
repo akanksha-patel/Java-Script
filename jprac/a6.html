@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+	#ab{
+		width: 400px;
+		height: 400px;
+		border: 1px solid red;
+		background-image: url(images/cm9.jpg);
+	}
+  </style>
+  <script type="text/javascript">
+	window.onload = initAll;
+
+	var count = 1;
+	var box = null;
+	var intv = null;
+	function initAll(){
+		box = document.getElementById('ab');
+		intv = setInterval(defuse,1000);
+	}
+
+	function defuse(){
+		if(count>0){
+			count = count - 0.1;
+			box.style.opacity = count;
+		}	
+	}
+    
+  </script>
+ </HEAD>
+
+ <BODY>
+  <div id="ab"></div>
+ </BODY>
+</HTML>

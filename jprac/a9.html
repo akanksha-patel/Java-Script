@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+  	#ak{
+  		position: relative;	
+  	}
+
+	#ab{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 400px;
+		height: 400px;
+		border: 1px solid red;
+		background-image: url(images/1.jpg);
+	}
+
+	#ac{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 400px;
+		height: 400px;
+		border: 1px solid red;
+		background-image: url(images/2.jpg);
+		opacity: 0;
+	}
+  </style>
+
+  <script type="text/javascript">
+	window.onload = initAll;
+
+	var count = 1,count2 = 0;
+	var box1,box2;
+	var intv = null;
+	var x, y, tmp;
+	function initAll(){
+		box1 = document.getElementById('ab');
+		box2 = document.getElementById('ac');
+
+		x = box1;
+		y = box2;
+
+		intv = setInterval(defuse,150);
+	}
+	
+	var i = 1;
+	function defuse(){
+		if(count<=0||count2>=1){
+			count = 1;
+			count2 = 0;
+
+			//Case 1:
+			//x = y;
+			//y.style.backgroundImage = 'url(images/'+(i<=11?(i++):(i=1))+'.jpg)';
+
+			//Case 2:
+			x.style.backgroundImage = y.style.backgroundImage;
+			y.style.backgroundImage = 'url(images/'+(i<=11?(i++):(i=1))+'.jpg)';
+		}
+
+		if(count>0){
+			count = count - 0.1;
+			x.style.opacity = count;
+		}
+
+		if(count2<1){
+			count2 = count2 + 0.1;
+			y.style.opacity = count2;
+		}	
+	}
+    
+  </script>
+ </HEAD>
+
+ <BODY>
+
+  <div id="ak">
+  	<div id="ab"></div>
+  	<div id="ac"></div>
+  </div>
+
+ </BODY>
+</HTML>

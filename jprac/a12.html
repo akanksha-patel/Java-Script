@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>Hello</title>
+
+		<style type="text/css">
+			#stop{
+				border: 1px solid black;
+				padding: 3px 10px;
+				cursor: pointer;
+			}
+		</style>
+
+		<script type="text/javascript">
+			window.onload = initAll;
+
+			var body,stop,intv,rec;			
+			function initAll(){				
+				intv = setInterval(randomBombs, 5000);								
+				body = document.getElementsByTagName('body')[0];
+				stop = document.getElementById('stop');
+				rec = document.getElementById('rec');
+
+				stop.onclick = function(){clearInterval(intv)};
+			}
+
+			var scrWidth = window.innerWidth;
+			var scrHeight = window.innerHeight;	
+			var cnt = 0;
+			function randomBombs(){
+				var randPos = Math.round(Math.random()*scrWidth);
+
+				var randWidth = Math.round(Math.random()*30);
+				var randHeight = Math.round(Math.random()*30);
+
+				if(randWidth<5){
+					randWidth = randWidth + 5;
+				}
+
+				if(randHeight<5){
+					randHeight = randHeight + 5;
+				}
+
+				if(randPos<80){
+					randPos = randPos + (80 - randPos);
+				}
+
+				var block = document.createElement('div');
+				block.cnt = cnt++;
+				block.style.width = randWidth+'px';
+				block.style.height = randHeight+'px';
+				block.style.width = randWidth+'px';
+				block.style.position = 'absolute';
+				block.style.left = randPos+'px';
+				block.style.top = '0px';
+				block.style.border = '1px solid red';
+				block.hght = randHeight;
+				body.appendChild(block);
+				var blk = new Block(block);
+				blk.act();				
+			}
+
+			function Block(block){
+				this.block = block;
+				this.intvr = null;
+				this.act = blockControl();
+
+				function blockControl(){
+					intvr = setInterval(setNewPos, 10);
+				}
+
+				var count = 1;
+				function setNewPos(){
+					block.style.top = count+'px';
+					block.innerHTML = block.cnt;
+					//rec.innerHTML = count+block.style.height+' - '+scrHeight;
+					//alert(block.style.height);
+					count = count + 4;
+					if((count+block.hght)>scrHeight-100){
+						block.innerHTML = '<img src="boom.png" />';
+						//block.style.top = (block.style.top - 400)+'px';
+						//block.style.left = (block.style.left - 100)+'px';
+						block.style.border = 'none';
+						setTimeout(remvChildNode, 2000);
+						clearInterval(intvr);	
+					}	
+
+					return true;				
+				}
+
+				function remvChildNode(){					
+						body.removeChild(block);					
+						return true;
+				}
+			}
+		</script>
+	</head>
+
+	<body style="position:relative">
+		<div><span id="stop">Stop</span><span id="rec"></span></div>
+	</body>
+</html>

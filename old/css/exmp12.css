@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+#tx{
+	font-size: 32px;
+	font-weight: bold;
+	background-color: #CCC;
+}
+
+#count{
+	font-weight: bold;
+	font-size: 22px;
+	color: red;
+}

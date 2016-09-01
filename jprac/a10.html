@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+  	#ak{
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        background: url(images/a1.png) 0px 0px no-repeat,url(images/a2.png) 200px 0px no-repeat;        
+    }
+	
+  </style>
+
+  <script type="text/javascript">
+	window.onload = initAll;
+	
+    var intv;
+	function initAll(){			
+		box1 = document.getElementById('ak');
+		intv = setInterval(swap,10);
+	}    
+      
+    var count = 0;  
+    function swap(){
+        box1.style.background = 'url(images/a1.png) '+(0-count)+'px 0px no-repeat, url(images/a2.png) '+(200-count)+'px 0px no-repeat';
+        count++;
+        if(count==200){
+            clearInterval(intv);
+        }
+    }
+  </script>
+ </HEAD>
+
+ <BODY>
+
+  <div id="ak"></div>
+
+ </BODY>
+</HTML>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  
+  <title>Document</title>
+  <style>
+	#navMenu {
+    margin:0;
+    width:auto;
+ }
+
+  #navMenu ul {
+    margin:0;
+    padding:0;
+    line-height:30px;
+ }
+
+  #navMenu li {
+    margin:0;
+    padding:0;
+    list-style:none;
+    float:left;
+    position:relative;
+    background:#999;
+ }
+
+  #navMenu ul li a {
+    text-align:center; 
+    height:30px;
+    width:150px;
+    display:block;
+    color:#000;
+    font-family:"Comic Sans MS", cursive;
+    text-decoration:none;
+    color:#FFF;
+    border:1px solid #FFF;
+    text-shadow:1px 1px 1px #000; 
+ }
+
+ /*********************************************/
+ /* hide menu and allow it to return */
+ /*********************************************/
+
+	#navMenu ul ul {
+	position:absolute;
+	visibility:hidden;
+	top:32px;
+ }
+
+  #navMenu ul li:hover ul {
+    visibility:visible;
+    z-index:9999; 
+ }
+
+  /**********************************************/
+
+  /*sets top level hover color*/
+
+  #navMenu li:hover {
+   background:#09F;
+ }
+
+  /*sets link items hover color and background*/
+
+  #navMenu ul li:hover ul li a:hover {
+    color:#000;
+    background:#CCC;
+ }
+
+  /* Changes text color on hover for main menu hover*/
+
+  #navMenu a:hover {   
+  color:#000;
+ } 
+  
+ /* Contains the Float */
+
+ .clearFloat {
+    clear:both; 
+    margin:0;
+    padding:0;
+ }
+
+ /* IE7 Display Fix */
+
+ #navMenu ul li { 
+
+  display: inline; 
+ 
+ }
+  </style>
+ </head>
+ <body>
+	<div id="navMenu">
+	  <ul>
+		<li> <a href="#">Search by post</a>
+			<ul>
+				<li><a href="#">Hexaware</a></li>
+				<li><a href="#">TCS</a></li>
+				<li><a href="#">persistant</a></li>
+				<li><a href="#">Vipro</a></li>
+			</ul> <!-- end inner UL -->
+		</li>
+		<li> <a href="#">Contact Us</a>
+			<ul>
+				<li><a href="#">address</a></li>
+				<!--<li><a href="#">Vacuum Cleaner</a></li>
+				<li><a href="#">Pill Box</a></li>
+				<li><a href="#">Knee Socks</a></li>
+				<li><a href="#">Pirate Hat</a></li>
+				<li><a href="#">Kilt</a></li>-->
+			</ul> <!-- end inner UL -->
+		</li>
+		<!-- end main LI -->
+	  </ul> <!-- end main UL -->
+	  <br class="clearFloat" />
+    </div> <!-- end navMenu -->
+ </body>
+</html>

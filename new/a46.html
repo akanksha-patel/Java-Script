@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <style type="text/css">
+	body{
+		position: relative;
+	}
+
+	#bk{
+		width: 200px;
+		height: 200px;
+		border: 1px solid red;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+  </style>
+  <script type="text/javascript">
+	window.onload = initAll;
+	
+	var obj = null,ak;
+	var flag = false;
+	function initAll(){
+		obj = document.getElementById('bk');
+		ak = document.getElementById('ak');
+
+		obj.onmousedown = function(){ flag = true; this.style.backgroundColor = 'yellow'; };
+		obj.onmouseup = function(){ flag = false; this.style.backgroundColor = 'white'; };
+
+		obj.onmousemove = moveElm;
+	}
+
+	function moveElm(event){
+		if(flag){
+			//ak.innerHTML = event.clientX+" "+event.clientX;
+
+			this.style.left = (event.clientX-100)+'px';
+			this.style.top = (event.clientY-100)+'px';
+		}		
+	}
+
+  </script>
+ </HEAD>
+
+ <BODY>
+  <div id="bk"></div>
+  <span id="ak"></span>
+ </BODY>
+</HTML>

@@ -1,0 +1,45 @@
+#menu_bar{	
+	/*border: 1px solid red;*/
+	margin-top: 20px;
+}
+
+#menu_bar a{
+	text-decoration: none;	
+	padding: 4px 8px;
+	margin-left: 12px;
+}
+
+#menu_bar a:link,#menu_bar a:visited{
+	color: #eee;
+	background-color: #777;
+	border: 1px solid #777;
+}
+
+#menu_bar a:hover,#menu_bar a:active{
+	color: #777;
+	background-color: #eee;
+	border: 1px solid #777;
+}
+
+li{
+	display: inline;
+}
+
+.menu_elm{
+	position: relative;
+}
+
+.sub_elm{
+	position: absolute;
+	left: -40px;
+	top: 26px;
+	width: 120px;
+	display: none;
+}
+
+.sub_elm li{
+	display: block;
+	width: 200px;
+	margin-bottom: 8px; 
+}
+
